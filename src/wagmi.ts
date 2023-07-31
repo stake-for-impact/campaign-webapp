@@ -1,14 +1,17 @@
 import { getDefaultWallets } from '@rainbow-me/rainbowkit'
 import { configureChains, createConfig } from 'wagmi'
-import { goerli, mainnet } from 'wagmi/chains'
-import { publicProvider } from 'wagmi/providers/public'
+import { goerli } from 'wagmi/chains'
+import { infuraProvider } from 'wagmi/providers/infura'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 const walletConnectProjectId = '00679a69fb87981fa9ad6f87e8378fe3'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [mainnet, ...(process.env.NODE_ENV === 'development' ? [goerli] : [])],
+  [goerli],
   [
-    publicProvider(),
+    infuraProvider({ apiKey: 'e31a7da7487642f1997f48691834aab1'  }),
   ],
 )
 

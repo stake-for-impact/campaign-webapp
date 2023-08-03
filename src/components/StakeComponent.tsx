@@ -45,9 +45,11 @@ const StakeComponent  = () => {
     }
 
         return (
-            <div>
-                <input type="number" value={amount} onChange={handleInputChange} /><br />
-                <button onClick={handleStake}>Stake</button>
+            <div className="flex flex-col items-center">
+                <input type="number" value={amount} onChange={handleInputChange} className="bg-gray-50 border m-2 border-gray-300 py-2 px-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-48 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                <button onClick={handleStake} className="bg-blue-500 p-6 hover:bg-blue-400 text-white font-bold py-2 px-4 m-2 border-b-4 border-blue-700 w-48 hover:border-blue-500 rounded">
+                    Stake
+                </button>
             </div>
         )
 }

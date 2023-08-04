@@ -15,11 +15,11 @@ import '../input.css'
 
 const Page: NextPage = () => {
   return (
-    <div className=' dark:bg-gray-800'>
+    <div className=''>
       <Header />
       <div className='justify-center h-screen container mx-auto'>
         <div className='flex items-center justify-between'>
-          <h1 className='text-xl text-left text-white p-4'>
+          <h1 className='text-xl text-left p-4'>
             Stake ETH and automatically donate staking rewards to Come back Alive
           </h1>
           <Image src="/come-back-alive-logo.svg" alt="Come Back Alive Logo" width={200} height={100} />

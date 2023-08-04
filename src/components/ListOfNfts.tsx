@@ -44,9 +44,9 @@ const NFTList = () => {
                 QUERY,
                 { address: connectedAddress}
               );
-            console.log(QUERY)
-            console.log(data)
             const userNFTs = data.nfts;
+            console.log("userNFTs:", userNFTs)
+            console.log("userNFTs.length:", userNFTs.length)
     
             if (userNFTs.length > 0) {
               setNFTs(userNFTs);
@@ -85,21 +85,26 @@ const NFTList = () => {
     if (error) {
       return <div>Error: {error}</div>;
     }
-
-    if (nfts.length === 0) {
-        return <div>No NFTs found for this user.</div>;
-      }    
+    
+    const renderButton = async () => {
+      if (nfts.length === 0) {
+        console.log("nftls length is 0")
+        return <div>No NFTs found for this user.</div>
+      } else {
+        return <ul>
+        {nfts.map((nft) => (
+            <li key={nft.id}>
+                NFT ID: {nft.tokenId} | Amount: {nft.amount} | <NftWithdrawButton tokenId={nft.tokenId} />
+            </li>
+        ))}
+    </ul>
+      }
+    }
   
     return (
       <div>
         <h2>NFTs owned by the user for this vault:</h2>
-        <ul>
-            {nfts.map((nft) => (
-                <li key={nft.id}>
-                    NFT ID: {nft.tokenId} | Amount: {nft.amount} | <NftWithdrawButton tokenId={nft.tokenId} />
-                </li>
-            ))}
-        </ul>
+        {renderButton()}
       </div>
     );
   };

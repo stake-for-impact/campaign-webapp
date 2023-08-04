@@ -31,7 +31,7 @@ const SUBGRAPH_URL = 'https://api.studio.thegraph.com/query/49319/sfi-nft-deploy
 
 const NFTList = () => {
     const [nfts, setNFTs] = useState<NFT[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 
     const connectedAddress = getAccount().address;
@@ -87,10 +87,9 @@ const NFTList = () => {
     }
     
     const renderButton = async () => {
-      /*if (nfts.length === 0) {
-        console.log("nftls length is 0")
+      if (nfts.length === 0) {
         return <div>No NFTs found for this user.</div>
-      } else {*/
+      } else {
         return <ul>
         {nfts.map((nft) => (
             <li key={nft.id}>
@@ -104,7 +103,13 @@ const NFTList = () => {
     return (
       <div>
         <h2>NFTs owned by the user for this vault:</h2>
-        {renderButton()}
+        <ul>
+            {nfts.map((nft) => (
+                <li key={nft.id}>
+                    NFT ID: {nft.tokenId} | Amount: {nft.amount} | <NftWithdrawButton tokenId={nft.tokenId} />
+                </li>
+            ))}
+        </ul>
       </div>
     );
   };

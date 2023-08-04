@@ -87,10 +87,10 @@ const NFTList = () => {
     }
     
     const renderButton = async () => {
-      if (nfts.length === 0) {
+      /*if (nfts.length === 0) {
         console.log("nftls length is 0")
         return <div>No NFTs found for this user.</div>
-      } else {
+      } else {*/
         return <ul>
         {nfts.map((nft) => (
             <li key={nft.id}>

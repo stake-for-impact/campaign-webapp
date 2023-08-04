@@ -1,7 +1,11 @@
 import '@rainbow-me/rainbowkit/styles.css'
 import { Providers } from './providers'
+import type { Metadata } from 'next'
+import React from 'react'
+import './global.css'
+import '../input.css'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'wagmi',
 }
 

@@ -22,7 +22,7 @@ const HarvestButton: React.FC<HarvestButtonProps>= ({ vaultAddress }) => {
   }
 
   return (
-    <button onClick={handleHarvest} className="bg-blue-500 w-48 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Harvest rewards</button>
+    <button onClick={handleHarvest} className="bg-gradient-to-r from-cyan-500 to-blue-500 w-48 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Harvest rewards</button>
   )
 }
 

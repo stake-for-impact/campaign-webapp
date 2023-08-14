@@ -4,7 +4,7 @@ import '../input.css'; // You can create a separate CSS file for styling if need
 
 const CampaignHero = () => {
     return (
-      <div>
+      <div className=''>
         <div className='bg-cover p-4' style={{
           backgroundImage: `url('/cba-hero-image.png')`,
         }}>
@@ -17,8 +17,8 @@ const CampaignHero = () => {
             </div>
           </div>
         </div>
-        <div className='text-black m-4'>
-          <p>
+        <div className='text-black m-4 lg:w-3/5 flex-col justify-center items-center'>
+          <p className="text-center">
             Stake for Ukraine is a community project to support Ukrainian people in their fight 
             for freedom against Russian invasion. This particular campaign allows holders of ETH to stake 
             their ETH and automatically donate staking rewards to Come back Alive.

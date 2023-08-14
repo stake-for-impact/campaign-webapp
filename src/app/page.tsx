@@ -19,11 +19,7 @@ const Page: NextPage = () => {
     <div>
       <Header />
       <CampaignHero />
-      <div className='border-2 border-yellow-200 p-4 m-6 rounded-xl'>
-        <h2 className='underline text-center '>Vault stats</h2>
-        <CampaignStats />
-        <br />
-      </div>
+      <CampaignStats />
       <Connected>
         <div className='text-center border-2 p-4 m-6 border-blue-800 rounded-xl'>
           <StakeComponent />

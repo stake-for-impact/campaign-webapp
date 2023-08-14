@@ -4,8 +4,8 @@ import '../input.css'; // You can create a separate CSS file for styling if need
 
 const CampaignHero = () => {
     return (
-      <div className=''>
-        <div className='bg-cover p-4' style={{
+      <div className='flex flex-col justify-center items-center'>
+        <div className='bg-cover w p-4' style={{
           backgroundImage: `url('/cba-hero-image.png')`,
         }}>
           <Image src="/come-back-alive-logo.svg" alt="Come Back Alive Logo" width={106} height={53} />

@@ -20,12 +20,7 @@ const Page: NextPage = () => {
       <Header />
       <CampaignHero />
       <CampaignStats />
-      <Connected>
-        <div className='text-center border-2 p-4 m-6 border-blue-800 rounded-xl'>
-          <StakeComponent />
-          <NFTList />
-        </div>
-      </Connected>      
+      <StakeComponent />    
       <Footer />
     </div>
   )

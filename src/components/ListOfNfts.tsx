@@ -1,5 +1,5 @@
 'use client'
-import React, { use, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { request } from 'graphql-request';
 import { getAccount } from '@wagmi/core'
 import NftWithdrawButton from './NftWithdrawButton'
@@ -36,6 +36,10 @@ const NFTList = () => {
 
     const connectedAddress = getAccount().address;
  
+    useEffect(() => {
+      fetchData();
+    }, [connectedAddress])
+
       const fetchData = async () => {
         try {
           const data = await request<{ nfts: NFT[] }>(SUBGRAPH_URL, QUERY, {
@@ -49,17 +53,12 @@ const NFTList = () => {
           } else {
             setNFTs([]);
           }
-  
-          console.log("userNFTs.length:", userNFTs.length);
         } catch (error) {
           setError('Error fetching NFTs');
         } finally {
           setLoading(false);
         }
       };
-
-
-      fetchData();
 
   
     if (loading) {
@@ -69,11 +68,7 @@ const NFTList = () => {
   
     if (error) {
       return <div>Error: {error}</div>;
-    }
-
-
-    
-
+    } 
 
     return (
       <div>
@@ -86,7 +81,7 @@ const NFTList = () => {
                 <ul>
                     {nfts.map((nft) => (
                         <li key={nft.id}>
-                            NFT ID: {nft.tokenId} | Amount: {nft.amount} | <NftWithdrawButton tokenId={nft.tokenId} />
+                            NFT ID: {nft.tokenId} | Amount: {nft.amount} | <NftWithdrawButton tokenId={nft.tokenId}/>
                         </li>
                     ))}
                 </ul>

@@ -18,7 +18,7 @@ const CampaignHero = () => {
           </div>
         </div>
         <div className='text-black m-4 lg:w-3/5 flex-col justify-center items-center'>
-          <p className="text-center">
+          <p className="text-left">
             Stake for Ukraine is a community project to support Ukrainian people in their fight 
             for freedom against Russian invasion. This particular campaign allows holders of ETH to stake 
             their ETH and automatically donate staking rewards to Come back Alive.

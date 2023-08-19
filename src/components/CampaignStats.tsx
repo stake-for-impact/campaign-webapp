@@ -7,6 +7,7 @@ import * as dotenv from 'dotenv';
 import { testVault } from './contracts'
 import { readContract, writeContract } from '@wagmi/core'
 import HarvestButton from './HarvestButton';
+import { Card } from 'flowbite-react'
 
 
 dotenv.config();
@@ -67,6 +68,7 @@ const CampaignStats = () => {
   return (
     <div className='flex flex-col items-center justify-center'>
       <h2 className='content-center'>Vault stats</h2>
+      <Card>
       <div className='border-2 border-yellow-200 p-4 m-6 rounded-xl lg:w-3/5'>
         <div className="flex justify-between items-center p-4">
           <div className="text-left">
@@ -98,7 +100,7 @@ const CampaignStats = () => {
           <HarvestButton vaultAddress={testVault.address} />
         </div>
       </div>
-  
+      </Card>
     </div>
   );
 };

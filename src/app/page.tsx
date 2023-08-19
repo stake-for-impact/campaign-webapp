@@ -18,9 +18,11 @@ const Page: NextPage = () => {
   return (
     <div>
       <Header />
-      <CampaignHero />
-      <CampaignStats />
-      <StakeComponent />    
+      <div className='container flex-col max-w-[1000px] mx-auto'>
+        <CampaignHero />
+        <CampaignStats />
+        <StakeComponent />   
+      </div> 
       <Footer />
     </div>
   )

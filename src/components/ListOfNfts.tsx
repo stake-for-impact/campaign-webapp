@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { request } from 'graphql-request';
 import { getAccount } from '@wagmi/core'
 import NftWithdrawButton from './NftWithdrawButton'
+import { Table } from 'flowbite-react'
 
 
 interface NFT {
@@ -72,8 +73,7 @@ const NFTList = () => {
 
     return (
       <div>
-        <h2>NFTs owned by the user for this vault:</h2>
-        <p>nft.length:</p>{nfts.length}
+        <h2>Your stake in this vault:</h2>
         {
         nfts.length === 0 ? (
                 <div>No NFTs found for this user.</div>

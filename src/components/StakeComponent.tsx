@@ -50,12 +50,13 @@ const StakeComponent  = () => {
 
         return (
             <div className='flex flex-col items-center justify-center'>
-                <h2 className='content-center'>Your stake</h2>
-                <Card className="max-w-sm">
+                <h2 className='content-center p-2'>Your stake</h2>
+                <Card className="w-[90%] md:w-[400p]">
             <Connected>
                 <div className='flex items-center justify-center'>
                     <TextInput
                         id="password2"
+                        className='pr-2'
                         required
                         shadow
                         type="number"

@@ -4,6 +4,7 @@ import { ethers } from 'ethers';
 import { useContractWrite, usePrepareContractWrite } from 'wagmi'
 import { Connected } from '../components/Connected'
 import { parseEther } from 'viem';
+import { Button, TextInput, Card } from 'flowbite-react'
 import NFTList from './ListOfNfts';
 
 
@@ -48,26 +49,31 @@ const StakeComponent  = () => {
     }
 
         return (
-            <div className='flex flex-col items-center'>
-                Your stake
-                <div className=" border-2 border-yellow-200 p-4 m-6 rounded-xl lg:w-3/5">
+            <div className='flex flex-col items-center justify-center'>
+                <h2 className='content-center p-2'>Your stake</h2>
+                <Card className="w-[90%] md:w-[400p]">
             <Connected>
-                
-                    <input 
-                        type="number" 
+                <div className='flex items-center justify-center'>
+                    <TextInput
+                        id="password2"
+                        className='pr-2'
+                        required
+                        shadow
+                        type="number"
                         value={amount} 
                         onChange={handleInputChange} 
-                        className="border m-2 border-blue-500 py-2 px-4 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-48"
                     />
-                    <button 
+                    <Button 
                         onClick={handleStake} 
-                        className="bg-gradient-to-r from-cyan-500 to-blue-500 p-6 hover:bg-blue-400 text-white font-bold py-2 px-4 m-2 border-b-4 border-blue-700 w-48 hover:border-blue-500 rounded"
+                        gradientDuoTone="cyanToBlue"
+                        outline
                     >
                         Stake
-                    </button>
+                    </Button>
+                </div>
                 <NFTList />
             </Connected>
-            </div>
+            </Card>
         </div>
         )
 }

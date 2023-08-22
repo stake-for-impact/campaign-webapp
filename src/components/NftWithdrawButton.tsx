@@ -4,12 +4,13 @@ import { readContract, writeContract } from '@wagmi/core'
 
 
 interface WithdrawButtonProps {
-    tokenId: number;
-  }
+  tokenId: number;
+}
   
 
 const NftWithdrawButton: React.FC<WithdrawButtonProps>= ({ tokenId }) => {
-  const [approvalResult, setApprovalResult] = useState<string | null>(null);
+  const [approvalResult, setApprovalResult] = useState<string | null>(null)
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     // Call the checkApproval function only when the component mounts
@@ -25,12 +26,14 @@ const NftWithdrawButton: React.FC<WithdrawButtonProps>= ({ tokenId }) => {
       args: [BigInt(tokenId)],
       })
       console.log("Approved to:", data)
-      setApprovalResult(data);
-      return data
+      setApprovalResult(data)
+      setLoading(false)
     } catch (error) {
       console.error("Couldn't read fetApproved:", error)
+      setLoading(false)
     }
   }
+
   const handleApproval = async () => {
     try {
       const { hash } = await writeContract({
@@ -40,17 +43,19 @@ const NftWithdrawButton: React.FC<WithdrawButtonProps>= ({ tokenId }) => {
         args: [testVault.address, BigInt(tokenId)],
       })
       console.log("Approved:", hash)
+      setApprovalResult(testVault.address)
     } catch (error) {
       console.error("Approval failed", error)
     }
   }
+
   const handleWithdraw = async () => {
     try {
       const { hash } = await writeContract({
         address: testVault.address,
         abi: testVault.abi,
         functionName: 'withdraw',
-        args: [BigInt(tokenId)],
+        args: [tokenId as unknown as bigint],
       })
       console.log("Withdraw transaction has:", hash)
     } catch (error) {
@@ -58,16 +63,18 @@ const NftWithdrawButton: React.FC<WithdrawButtonProps>= ({ tokenId }) => {
     }
   }
 
-  const renderButton = async () => {
-    if (approvalResult === testNFT.address) {
-      return <button onClick={handleWithdraw}>Withdraw</button>
-    } else {
-      return <button onClick={handleApproval}>Approve</button>
-    }
+  if (loading) {
+    return <div>Loading...</div>
   }
 
   return (
-    <div>{renderButton()}</div>
+    <div>
+      {approvalResult === testVault.address ? (
+        <button onClick={handleWithdraw}>Withdraw</button>
+      ) : (
+        <button onClick={handleApproval}>Approve</button>
+      )}
+    </div>
   )
 }
 

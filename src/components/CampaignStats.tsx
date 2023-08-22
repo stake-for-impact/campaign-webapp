@@ -7,6 +7,7 @@ import * as dotenv from 'dotenv';
 import { testVault } from './contracts'
 import { readContract, writeContract } from '@wagmi/core'
 import HarvestButton from './HarvestButton';
+import { Card } from 'flowbite-react'
 
 
 dotenv.config();
@@ -66,39 +67,38 @@ const CampaignStats = () => {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <h2 className='content-center'>Vault stats</h2>
-      <div className='border-2 border-yellow-200 p-4 m-6 rounded-xl lg:w-3/5'>
-        <div className="flex justify-between items-center p-4">
+      <h2 className='content-center p-2'>Vault stats</h2>
+      <Card className="w-[90%] md:w-[400p]">
+        <div className="flex justify-between items-center p-1">
           <div className="text-left">
             Vault address:
           </div>
           <div className="text-right">
-            <a href={`https://goerli.etherscan.io/address/${testVault.address}`} target="_blank" rel="noopener noreferrer">
-              {testVault.address}
+            <a href={`https://goerli.etherscan.io/address/${testVault.address}`} target="_blank" rel="noopener noreferrer" className="underlined">
+              {`${testVault.address.substring(0, 6)}...${testVault.address.substring(testVault.address.length - 4)}`}
             </a>
           </div>
         </div>
-        <div className="flex justify-between items-center p-4">
+        <div className="flex justify-between items-center p-1">
           <div className="text-left">Campaign created:</div>
           <div className="text-right">20 January</div>
         </div>
-        <div className="flex justify-between items-center p-4">
+        <div className="flex justify-between items-center p-1">
           <div className="text-left">Total Staked:</div>
           <div className="text-right">{totalStaked !== null ? `${totalStaked} ETH` : 'Loading...'}</div>
         </div>
-        <div className="flex justify-between items-center p-4">
+        <div className="flex justify-between items-center p-1">
           <div className="text-left">Stakers:</div>
           <div className="text-right">Value</div>
         </div>
-        <div className="flex justify-between items-center p-4">
+        <div className="flex justify-between items-center p-1">
           <div className="text-left">Harvested to date:</div>
           <div className="text-right">{totalHarvested !== null ? `${totalHarvested} ETH` : 'Loading...'}</div>
         </div>
         <div className="flex items-center p-4">
           <HarvestButton vaultAddress={testVault.address} />
         </div>
-      </div>
-  
+      </Card>
     </div>
   );
 };

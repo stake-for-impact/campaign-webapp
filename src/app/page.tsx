@@ -4,13 +4,12 @@ import React from 'react'
 import { NextPage } from 'next'
 import StakeComponent from '../components/StakeComponent'
 import CampaignStats from '../components/CampaignStats'
-import NFTList from '../components/ListOfNfts'
 import Header from '../components/Header'
-import { Connected } from '../components/Connected'
 import './global.css'
 import '../input.css'
 import Footer from '../components/Footer'
 import CampaignHero from '../components/CampaignHero'
+import FAQ from '../components/FAQ'
 
 
 
@@ -21,7 +20,8 @@ const Page: NextPage = () => {
       <div className='container flex-col max-w-[1000px] mx-auto'>
         <CampaignHero />
         <CampaignStats />
-        <StakeComponent />   
+        <StakeComponent />
+        <FAQ /> 
       </div> 
       <Footer />
     </div>

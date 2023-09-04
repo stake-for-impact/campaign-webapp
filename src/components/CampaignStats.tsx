@@ -34,8 +34,6 @@ const CampaignStats = () => {
           abi: testVault.abi,
           functionName: 'totalDepositedEth'
         })
-        console.log("balance:", balance)
-        console.log("parsed:", parseFloat(ethers.utils.formatEther(balance)))
         setTotalStaked(parseFloat(ethers.utils.formatEther(balance)))
 
         // Fetch total harvested
@@ -67,8 +65,8 @@ const CampaignStats = () => {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <h2 className='content-center p-2'>Vault stats</h2>
-      <Card className="w-[90%] md:w-[400p]">
+      <Card className="w-[90%] md:w-[600px]">
+        <h2 className='p-2'>Vault stats</h2>
         <div className="flex justify-between items-center p-1">
           <div className="text-left">
             Vault address:

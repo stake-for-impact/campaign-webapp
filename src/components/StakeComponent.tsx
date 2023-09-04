@@ -51,7 +51,7 @@ const StakeComponent  = () => {
         return (
             <div className='flex flex-col items-center justify-center'>
                 <h2 className='content-center p-2'>Your stake</h2>
-                <Card className="w-[90%] md:w-[400p]">
+                <Card className="w-[90%] md:w-[600px]">
             <Connected>
                 <div className='flex items-center justify-center'>
                     <TextInput
